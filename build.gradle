@@ -1,0 +1,88 @@
+plugins {
+    id 'java-library'
+    id 'maven-publish'
+    id 'net.neoforged.moddev' version '2.0.78'
+}
+
+group = project.maven_group
+version = project.mod_version
+
+base {
+    archivesName = project.archives_base_name
+}
+
+java {
+    toolchain.languageVersion = JavaLanguageVersion.of(21)
+    withSourcesJar()
+}
+
+repositories {
+    mavenCentral()
+    maven { url = 'https://maven.theillusivec4.top/' }
+    maven { url = 'https://maven.wispforest.io/releases' }
+    maven { url = 'https://maven.su5ed.dev/releases' }
+}
+
+neoForge {
+    version = project.neoforge_version
+
+    runs {
+        client {
+            client()
+        }
+
+        server {
+            server()
+            programArgument '--nogui'
+        }
+    }
+
+    mods {
+        goldenbackpacks {
+            sourceSet sourceSets.main
+        }
+    }
+}
+
+dependencies {
+    compileOnly "top.theillusivec4.curios:curios-neoforge:${project.curios_version}"
+    compileOnly "io.wispforest:accessories-neoforge:${project.accessories_version}"
+}
+
+processResources {
+    inputs.property "version", project.version
+    inputs.property "minecraft_version", project.minecraft_version
+    inputs.property "neoforge_version", project.neoforge_version
+    inputs.property "curios_version", project.curios_version
+    inputs.property "curios_version_range", project.curios_version_range
+    inputs.property "accessories_version_range", project.accessories_version_range
+
+    filesMatching("META-INF/neoforge.mods.toml") {
+        expand "version": project.version,
+                "minecraft_version": project.minecraft_version,
+                "neoforge_version": project.neoforge_version,
+                "curios_version": project.curios_version,
+                "curios_version_range": project.curios_version_range,
+                "accessories_version_range": project.accessories_version_range
+    }
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.release = 21
+    options.encoding = 'UTF-8'
+}
+
+jar {
+    from("LICENSE") {
+        rename { "${it}_${project.archivesBaseName}" }
+    }
+}
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            artifact(jar)
+            artifact(sourcesJar)
+        }
+    }
+}

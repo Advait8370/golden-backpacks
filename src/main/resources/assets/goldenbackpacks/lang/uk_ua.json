@@ -1,0 +1,39 @@
+{
+  "itemGroup.goldenbackpacks.backpack": "GoldenBackpacks",
+
+  "ui.goldenbackpacks.backpack": "Рюкзак",
+
+  "item.goldenbackpacks.baby_backpack": "Рюкзачок",
+  "item.goldenbackpacks.ender_pouch": "Мішечок Енду",
+
+  "item.goldenbackpacks.frayed_backpack": "Обшарпаний рюкзак",
+  "item.goldenbackpacks.plated_backpack": "Залізний рюкзак",
+  "item.goldenbackpacks.gilded_backpack": "Позолочений рюкзак",
+  "item.goldenbackpacks.bejeweled_backpack": "Коштовний рюкзак",
+  "item.goldenbackpacks.blazing_backpack": "Палаючий рюкзак",
+  "item.goldenbackpacks.withered_backpack": "Візерський рюкзак",
+  "item.goldenbackpacks.endless_backpack": "Рюкзак Енду",
+
+  "goldenbackpacks.advancement.baby_backpack.title": "Прекрасна сумка",
+  "goldenbackpacks.advancement.baby_backpack.description": "Ідеально підходить для подарунків на вечірку!",
+  "goldenbackpacks.advancement.ender_pouch.title": "Доступ Енду",
+  "goldenbackpacks.advancement.ender_pouch.description": "Засунувши руку в цю сумку, вона з'явиться у вашій скрині Енду...",
+
+  "goldenbackpacks.advancement.frayed_backpack.title": "Початок рюкзака",
+  "goldenbackpacks.advancement.frayed_backpack.description": "Це небагато, але це моє! Змайструйте обшарпаний рюкзак, щоб розширити місце у своєму інвентарі.",
+  "goldenbackpacks.advancement.plated_backpack.title": "Підвищення рівня",
+  "goldenbackpacks.advancement.plated_backpack.description": "Покрийте свій обшарпаний рюкзак залізними злитками, щоб розширити його зберігальні можливості.",
+  "goldenbackpacks.advancement.gilded_backpack.title": "Позолочені розширення",
+  "goldenbackpacks.advancement.gilded_backpack.description": "Покращте свій залізний рюкзак, покривши його золотом. Блискуче!",
+  "goldenbackpacks.advancement.bejeweled_backpack.title": "Накрий мене всілякими коштовностями",
+  "goldenbackpacks.advancement.bejeweled_backpack.description": "Прикріпіть кілька рідкісних коштовностей до свого позолоченого рюкзака, щоб зробити його ще блискучішим!",
+  "goldenbackpacks.advancement.blazing_backpack.title": "Вогняні альтернативи",
+  "goldenbackpacks.advancement.blazing_backpack.description": "Покрийте свій рюкзак незеритом, щоб зробити його несприйнятливим до вогню та лави.",
+  "goldenbackpacks.advancement.withered_backpack.title": "Висушуване роздолля",
+  "goldenbackpacks.advancement.withered_backpack.description": "Покращте свій блискучий рюкзак трофеєм, отриманим спустошеним королем.",
+  "goldenbackpacks.advancement.endless_backpack.title": "Кінець",
+  "goldenbackpacks.advancement.endless_backpack.description": "Отримайте найкращий рюкзак, наповнений силою Енду.",
+
+  "category.goldenbackpacks.keybindings": "GoldenBackpacks",
+  "key.goldenbackpacks.open_backpack": "Відкрити рюкзак"
+}

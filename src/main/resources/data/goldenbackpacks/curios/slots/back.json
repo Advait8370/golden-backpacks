@@ -1,0 +1,6 @@
+{
+  "validators": [
+    "curios:tag",
+    "goldenbackpacks:backpack"
+  ]
+}

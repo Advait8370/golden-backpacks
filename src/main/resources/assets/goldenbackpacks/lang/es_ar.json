@@ -1,0 +1,22 @@
+{
+  "itemGroup.goldenbackpacks.backpack": "GoldenBackpacks",
+
+  "ui.goldenbackpacks.backpack": "Mochila",
+
+  "item.goldenbackpacks.baby_backpack": "Mochila de bebé",
+  "item.goldenbackpacks.ender_pouch": "Mochila de ender",
+
+  "item.goldenbackpacks.frayed_backpack": "Mochila gastada",
+  "item.goldenbackpacks.plated_backpack": "Mochila blindada",
+  "item.goldenbackpacks.gilded_backpack": "Mochila dorada",
+  "item.goldenbackpacks.bejeweled_backpack": "Mochila enjoyada",
+  "item.goldenbackpacks.blazing_backpack": "Mochila flameante",
+  "item.goldenbackpacks.withered_backpack": "Mochila marchita",
+  "item.goldenbackpacks.endless_backpack": "Mochila sin fin",
+
+  "goldenbackpacks.advancement.baby_backpack.title": "Bolsa de obsequios",
+  "goldenbackpacks.advancement.baby_backpack.description": "¡Perfecta para regalos festivos!",
+
+  "category.goldenbackpacks.keybindings": "GoldenBackpacks",
+  "key.goldenbackpacks.open_backpack": "Abrir la mochila"
+}

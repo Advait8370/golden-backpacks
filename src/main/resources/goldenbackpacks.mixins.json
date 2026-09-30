@@ -1,0 +1,26 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "com.goldenbackpacks.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "refmap": "goldenbackpacks.refmap.json",
+  "mixins": [
+    "AbstractArrowMixin",
+    "BlockItemMixin",
+    "HopperBlockEntityMixin",
+    "InventoryMenuMixin",
+    "ItemEntityMixin",
+    "LevelMixin",
+    "LivingEntityMixin",
+    "PlayerInventoryScreenMixin",
+    "ProjectileWeaponItemMixin",
+    "ShapedRecipeMixin",
+    "RecipeManagerMixin"
+  ],
+  "client": [
+    "ItemStackMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

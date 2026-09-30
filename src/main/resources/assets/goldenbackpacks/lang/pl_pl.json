@@ -1,0 +1,15 @@
+{
+  "itemGroup.goldenbackpacks.backpack": "GoldenBackpacks",
+
+  "ui.goldenbackpacks.backpack": "Plecak",
+
+  "item.goldenbackpacks.baby_backpack": "Plecaczek",
+  "item.goldenbackpacks.ender_pouch": "Sakiewka Endu",
+
+  "item.goldenbackpacks.frayed_backpack": "Postrzępiony plecak",
+  "item.goldenbackpacks.plated_backpack": "Opancerzony plaecak",
+  "item.goldenbackpacks.gilded_backpack": "Pozłacany plecak",
+  "item.goldenbackpacks.bejeweled_backpack": "Plecak ozdobiony klejnotami",
+  "item.goldenbackpacks.withered_backpack": "Witherowy plecak",
+  "item.goldenbackpacks.endless_backpack": "Nieskończony plecak"
+}

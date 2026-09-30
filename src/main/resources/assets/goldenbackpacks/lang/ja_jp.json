@@ -1,0 +1,39 @@
+{
+  "itemGroup.goldenbackpacks.backpack": "GoldenBackpacks",
+
+  "ui.goldenbackpacks.backpack": "鞄",
+
+  "item.goldenbackpacks.baby_backpack": "小さな鞄",
+  "item.goldenbackpacks.ender_pouch": "エンダーポーチ",
+
+  "item.goldenbackpacks.frayed_backpack": "解れた鞄",
+  "item.goldenbackpacks.plated_backpack": "鍍金した鞄",
+  "item.goldenbackpacks.gilded_backpack": "金箔した鞄",
+  "item.goldenbackpacks.bejeweled_backpack": "宝飾した鞄",
+  "item.goldenbackpacks.blazing_backpack": "ネザーの鞄",
+  "item.goldenbackpacks.withered_backpack": "ウィザーの鞄",
+  "item.goldenbackpacks.endless_backpack": "エンドの鞄",
+
+  "goldenbackpacks.advancement.baby_backpack.title": "ココロバカリの贈り物",
+  "goldenbackpacks.advancement.baby_backpack.description": "小さな鞄を作る。ちょっとした手土産に最適だ。",
+  "goldenbackpacks.advancement.ender_pouch.title": "エンドに手を伸ばす",
+  "goldenbackpacks.advancement.ender_pouch.description": "エンダーポーチを作ってエンダーチェストの中に手を伸ばす。",
+
+  "goldenbackpacks.advancement.frayed_backpack.title": "鞄職人の見習い",
+  "goldenbackpacks.advancement.frayed_backpack.description": "誰でも初めはここから。解れた鞄を作ってインベントリを拡張する。",
+  "goldenbackpacks.advancement.plated_backpack.title": "鍍金りと大きく",
+  "goldenbackpacks.advancement.plated_backpack.description": "解れた鞄を鉄で鍍金して鞄を大きくする。",
+  "goldenbackpacks.advancement.gilded_backpack.title": "金ぴ鞄",
+  "goldenbackpacks.advancement.gilded_backpack.description": "鍍金した鞄に金箔を施して眩しい存在になる。",
+  "goldenbackpacks.advancement.bejeweled_backpack.title": "ダイヤモンドとかで鞄を覆って",
+  "goldenbackpacks.advancement.bejeweled_backpack.description": "金箔した鞄に貴重な宝石を嵌め込んで輝かしい性能を手に入れる。",
+  "goldenbackpacks.advancement.blazing_backpack.title": "地獄のような鞄強化作業",
+  "goldenbackpacks.advancement.blazing_backpack.description": "宝飾した鞄をネザライトで強化して炎と熔岩に耐性を付ける。",
+  "goldenbackpacks.advancement.withered_backpack.title": "弱ったな，まだ上の鞄がある",
+  "goldenbackpacks.advancement.withered_backpack.description": "ウィザーを討伐して宝飾した鞄を増強する。",
+  "goldenbackpacks.advancement.endless_backpack.title": "おしまいの鞄",
+  "goldenbackpacks.advancement.endless_backpack.description": "エンドで手に入る究極の素材を使って究極の鞄を作る。",
+
+  "category.goldenbackpacks.keybindings": "GoldenBackpacks",
+  "key.goldenbackpacks.open_backpack": "鞄を開く"
+}

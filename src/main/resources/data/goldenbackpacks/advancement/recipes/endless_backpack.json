@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "goldenbackpacks:endless_backpack"
+    ]
+  },
+  "criteria": {
+    "has_withered_backpack": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "goldenbackpacks:withered_backpack"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "goldenbackpacks:endless_backpack"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_withered_backpack",
+      "has_the_recipe"
+    ]
+  ]
+}
