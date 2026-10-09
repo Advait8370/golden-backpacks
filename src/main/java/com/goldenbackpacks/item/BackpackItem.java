@@ -4,6 +4,7 @@ import com.goldenbackpacks.GoldenBackpacks;
 import com.goldenbackpacks.augment.BackpackAugmentType;
 import com.goldenbackpacks.augment.BackpackAugments;
 import com.goldenbackpacks.config.BackpackInfo;
+import com.goldenbackpacks.item.component.BackpackComponent;
 import com.goldenbackpacks.ui.BackpackScreenHandler;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -63,6 +64,22 @@ public class BackpackItem extends Item implements Equipable {
     @Override
     public void appendHoverText(ItemStack stack, Item.TooltipContext context, List<Component> tooltip, TooltipFlag flag) {
         super.appendHoverText(stack, context, tooltip, flag);
+        if (Boolean.TRUE.equals(GoldenBackpacks.CONFIG.showStorageInTooltip)) {
+            BackpackComponent component = stack.get(GoldenBackpacks.BACKPACK_COMPONENT.get());
+            int usedSlots = 0;
+            if (component != null) {
+                for (ItemStack content : component.stacks()) {
+                    if (!content.isEmpty()) {
+                        usedSlots++;
+                    }
+                }
+            }
+
+            int totalSlots = backpack.getRowWidth() * backpack.getNumberOfRows();
+            tooltip.add(Component.translatable("goldenbackpacks.tooltip.storage", usedSlots, totalSlots)
+                    .withStyle(ChatFormatting.GRAY));
+        }
+
         List<BackpackAugmentType> unlocks = BackpackAugments.getTierUnlocks(backpack);
         if (!unlocks.isEmpty()) {
             MutableComponent list = Component.empty();

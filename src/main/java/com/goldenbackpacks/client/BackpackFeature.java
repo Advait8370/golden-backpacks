@@ -1,9 +1,7 @@
 package com.goldenbackpacks.client;
 
 import com.mojang.blaze3d.vertex.PoseStack;
-import com.mojang.math.Axis;
 import com.goldenbackpacks.item.BackpackItem;
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.PlayerModel;
 import net.minecraft.client.player.AbstractClientPlayer;
 import net.minecraft.client.renderer.MultiBufferSource;
@@ -11,13 +9,15 @@ import net.minecraft.client.renderer.entity.RenderLayerParent;
 import net.minecraft.client.renderer.entity.layers.RenderLayer;
 import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.world.entity.EquipmentSlot;
-import net.minecraft.world.item.ItemDisplayContext;
 import net.minecraft.world.item.ItemStack;
 
 public class BackpackFeature extends RenderLayer<AbstractClientPlayer, PlayerModel<AbstractClientPlayer>> {
+    private final BackpackModel backpackModel;
 
-    public BackpackFeature(RenderLayerParent<AbstractClientPlayer, PlayerModel<AbstractClientPlayer>> context) {
+    public BackpackFeature(RenderLayerParent<AbstractClientPlayer, PlayerModel<AbstractClientPlayer>> context,
+                           BackpackModel backpackModel) {
         super(context);
+        this.backpackModel = backpackModel;
     }
 
     @Override
@@ -28,28 +28,14 @@ public class BackpackFeature extends RenderLayer<AbstractClientPlayer, PlayerMod
             return;
         }
 
-        if (Minecraft.getInstance().level == null) {
-            return;
-        }
-
         poseStack.pushPose();
-        poseStack.mulPose(Axis.XP.rotationDegrees(180));
-        poseStack.translate(0, -0.2, -0.25);
-
-        if (player.isCrouching()) {
-            poseStack.mulPose(Axis.XP.rotationDegrees(25));
-            poseStack.translate(0, -0.2, 0);
-        }
-
-        Minecraft.getInstance().getItemRenderer().renderStatic(
-                chestSlot,
-                ItemDisplayContext.FIXED,
+        getParentModel().body.translateAndRotate(poseStack);
+        backpackModel.renderToBuffer(
+                poseStack,
+                bufferSource.getBuffer(backpackModel.renderType(BackpackModel.TEXTURE)),
                 packedLight,
                 OverlayTexture.NO_OVERLAY,
-                poseStack,
-                bufferSource,
-                player.level(),
-                0);
+                -1);
         poseStack.popPose();
     }
 }

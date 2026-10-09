@@ -38,6 +38,7 @@
   "key.goldenbackpacks.open_backpack": "Open Backpack",
   "goldenbackpacks.tooltip.unlocks": "Unlocks: %s",
   "goldenbackpacks.tooltip.unlocks.none": "Unlocks: None",
+  "goldenbackpacks.tooltip.storage": "Storage: %s / %s slots",
 
   "goldenbackpacks.gui.backpack_upgrades": "Backpack Upgrades",
   "goldenbackpacks.gui.backpack_upgrades.tooltip": "Configure backpack upgrades",

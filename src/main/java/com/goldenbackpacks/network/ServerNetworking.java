@@ -70,8 +70,14 @@ public final class ServerNetworking {
             Inventory inventory = player.getInventory();
             ItemStack firstBackpackItemStack = ItemStack.EMPTY;
 
+            if (Boolean.TRUE.equals(GoldenBackpacks.CONFIG.preferWornBackpack)) {
+                firstBackpackItemStack = findFirstBackpack(inventory.armor);
+            }
+
             if (!GoldenBackpacks.CONFIG.requireArmorTrinketToOpen) {
-                firstBackpackItemStack = findFirstBackpack(inventory.offhand);
+                if (firstBackpackItemStack.isEmpty()) {
+                    firstBackpackItemStack = findFirstBackpack(inventory.offhand);
+                }
                 if (firstBackpackItemStack.isEmpty()) {
                     firstBackpackItemStack = findFirstBackpack(inventory.items);
                 }

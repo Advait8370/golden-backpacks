@@ -51,5 +51,14 @@ public class GoldenBackpacksConfig {
 
     public boolean trinketRendering = true;
 
+    /** Shows the number of occupied slots directly in a backpack tooltip. */
+    public Boolean showStorageInTooltip = true;
+
+    /** Opens an equipped backpack before searching the main inventory. */
+    public Boolean preferWornBackpack = true;
+
+    /** Sorts and combines compatible stacks when a backpack screen is closed. */
+    public boolean sortBackpackOnClose = false;
+
     public String guiTitleColor = "0x404040";
 }

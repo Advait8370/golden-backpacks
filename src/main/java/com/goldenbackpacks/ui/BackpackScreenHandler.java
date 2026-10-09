@@ -20,6 +20,8 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.ShulkerBoxBlock;
 
+import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 public class BackpackScreenHandler extends AbstractContainerMenu {
@@ -27,6 +29,7 @@ public class BackpackScreenHandler extends AbstractContainerMenu {
     private final ItemStack backpackStack;
     private final int padding = 8;
     private final int titleSpace = 10;
+    private BackpackInventory backpackInventory;
 
     public BackpackScreenHandler(int synchronizationID, Inventory playerInventory, RegistryFriendlyByteBuf packetByteBuf) {
         this(synchronizationID, playerInventory, ItemStack.STREAM_CODEC.decode(packetByteBuf));
@@ -60,6 +63,7 @@ public class BackpackScreenHandler extends AbstractContainerMenu {
                 super.setChanged();
             }
         };
+        this.backpackInventory = inventory;
 
         List<ItemStack> stacks = component.stacks();
         for (int i = 0; i < size; i++) {
@@ -86,6 +90,45 @@ public class BackpackScreenHandler extends AbstractContainerMenu {
         }
 
         backpackStack.set(GoldenBackpacks.BACKPACK_COMPONENT.get(), BackpackComponent.fromContainer(inventory));
+    }
+
+    @Override
+    public void removed(Player player) {
+        if (!player.level().isClientSide && GoldenBackpacks.CONFIG.sortBackpackOnClose && backpackInventory != null) {
+            sortBackpackContents();
+        }
+        super.removed(player);
+    }
+
+    private void sortBackpackContents() {
+        List<ItemStack> contents = new ArrayList<>();
+        for (int slot = 0; slot < backpackInventory.getContainerSize(); slot++) {
+            ItemStack stack = backpackInventory.getItem(slot);
+            if (!stack.isEmpty()) {
+                contents.add(stack.copy());
+            }
+        }
+
+        contents.sort(Comparator.comparing(stack -> BuiltInRegistries.ITEM.getKey(stack.getItem()).toString()));
+
+        List<ItemStack> compacted = new ArrayList<>();
+        for (ItemStack stack : contents) {
+            for (ItemStack existing : compacted) {
+                if (ItemStack.isSameItemSameComponents(existing, stack) && existing.getCount() < existing.getMaxStackSize()) {
+                    int moved = Math.min(stack.getCount(), existing.getMaxStackSize() - existing.getCount());
+                    existing.grow(moved);
+                    stack.shrink(moved);
+                }
+            }
+            if (!stack.isEmpty()) {
+                compacted.add(stack);
+            }
+        }
+
+        for (int slot = 0; slot < backpackInventory.getContainerSize(); slot++) {
+            backpackInventory.setItem(slot, slot < compacted.size() ? compacted.get(slot) : ItemStack.EMPTY);
+        }
+        backpackStack.set(GoldenBackpacks.BACKPACK_COMPONENT.get(), BackpackComponent.fromContainer(backpackInventory));
     }
 
     public BackpackItem getItem() {

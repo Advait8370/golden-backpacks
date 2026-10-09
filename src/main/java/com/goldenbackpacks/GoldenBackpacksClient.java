@@ -1,6 +1,7 @@
 package com.goldenbackpacks;
 
 import com.goldenbackpacks.client.BackpackFeature;
+import com.goldenbackpacks.client.BackpackModel;
 import com.goldenbackpacks.client.GoldenBackpacksKeybinds;
 import com.goldenbackpacks.compat.AccessoriesClientCompat;
 import com.goldenbackpacks.compat.CuriosClientCompat;
@@ -29,6 +30,7 @@ public class GoldenBackpacksClient {
         eventBus.addListener(this::registerMenuScreens);
         eventBus.addListener(this::registerKeyMappings);
         eventBus.addListener(this::registerItemColors);
+        eventBus.addListener(this::registerLayerDefinitions);
         eventBus.addListener(this::addLayers);
     }
 
@@ -62,10 +64,15 @@ public class GoldenBackpacksClient {
         }
     }
 
+    private void registerLayerDefinitions(final EntityRenderersEvent.RegisterLayerDefinitions event) {
+        event.registerLayerDefinition(BackpackModel.LAYER, BackpackModel::createBodyLayer);
+    }
+
     private void addLayers(final EntityRenderersEvent.AddLayers event) {
+        BackpackModel backpackModel = new BackpackModel(event.getEntityModels().bakeLayer(BackpackModel.LAYER));
         for (PlayerSkin.Model skin : event.getSkins()) {
             if (event.getSkin(skin) instanceof PlayerRenderer renderer) {
-                renderer.addLayer(new BackpackFeature(renderer));
+                renderer.addLayer(new BackpackFeature(renderer, backpackModel));
             }
         }
     }
